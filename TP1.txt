@@ -1,2 +1,4 @@
 " new line in tp1 ! " 
 " new line in tp1 ! " 
+"Fonctionnalit‚ 1 : authentification des utilisateurs (connexion et d‚connexion)."  "Fonctionnalit‚ 2 : tableau de bord affichant les statistiques du projet."  "R‚sum‚ : ajout de la fonctionnalit‚ 1 (authentification) et de la fonctionnalit‚ 2 (tableau de bord)." 
+"R‚sum‚ : ajout de la fonctionnalit‚ 1 (authentification) et de la fonctionnalit‚ 2 (tableau de bord)." 

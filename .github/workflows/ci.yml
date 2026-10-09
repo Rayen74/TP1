@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, ajout-fonctionnalites ]
   pull_request:
     branches: [ main ]
 
@@ -24,9 +24,24 @@ jobs:
       - name: Test
         run: echo "Running tests..."
 
+  validate_files:
+    runs-on: ubuntu-latest
+    needs: build_job
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate feature files
+        run: |
+          if [ -s fonctionnalite1.txt ] && [ -s fonctionnalite2.txt ]; then
+            echo "Tous les fichiers sont presents et contiennent du texte"
+          else
+            echo "Un ou plusieurs fichiers sont manquants ou vides"
+            exit 1
+          fi
+
   deploy_job:
     runs-on: ubuntu-latest
-    needs: test_job
+    needs: [test_job, validate_files]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
